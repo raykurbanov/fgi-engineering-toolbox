@@ -226,7 +226,7 @@ function DesignPressure(props) {
     const minWallThickness =
       (targetDesignPressure * outsideDiameter) /
       (2 * pipeGrade * temperature * jointType * locationClass);
-    return minWallThickness;
+    return minWallThickness.toFixed(3);
   };
 
   const calulcateParameters = () => {
