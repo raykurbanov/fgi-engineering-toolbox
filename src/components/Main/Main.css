@@ -1,0 +1,30 @@
+#layout {
+  min-height: 100vh;
+}
+
+#logo-image {
+  width: 100%;
+}
+#company-logo-wrapper {
+  border-bottom: 1px solid #fff;
+  margin: 0 10px;
+}
+
+#logo-large {
+  color: #fff;
+  font-size: 24px;
+  margin: 5px auto;
+  text-align: center;
+}
+
+#logo-medium {
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+}
+
+#logo-alone-collapsed {
+  width: 80%;
+  display: block;
+  margin: 5px auto;
+}
