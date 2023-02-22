@@ -192,7 +192,7 @@ function DesignPressure(props) {
       </Space>
     );
   };
-  const InputDesingPressureTarget = () => {
+  const InputDesignTargetPressure = () => {
     return (
       <div>
         <input
@@ -229,7 +229,7 @@ function DesignPressure(props) {
     return minWallThickness.toFixed(3);
   };
 
-  const calulcateParameters = () => {
+  const calculateParameters = () => {
     setOutsideDiameter(getOutsideDiameter(npmSizePipe));
     const innerDiameter = outsideDiameter - 2 * wallThickness;
     setInternalDiameter(innerDiameter);
@@ -242,7 +242,7 @@ function DesignPressure(props) {
     setDesignPressure(designPressure);
   };
   useEffect(() => {
-    calulcateParameters();
+    calculateParameters();
   }, [
     npmSizePipe,
     internalDiameter,
@@ -262,7 +262,7 @@ function DesignPressure(props) {
             <div id="input-data-left">
               <div className="flex-row">
                 <p className="bold">Target Design Pressure, psig</p>
-                <InputDesingPressureTarget />
+                <InputDesignTargetPressure />
               </div>
               <div className="flex-row">
                 <p className="bold">Select Nominal Pipe Diameter</p>

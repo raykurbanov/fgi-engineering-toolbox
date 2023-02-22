@@ -22,31 +22,62 @@ function getItem(label, key, icon, children) {
 
 const App = () => {
   const pages = {
-    1: "design-pressure",
-    2: "minimum-wall-thickness",
-    3: "maop-mop",
-    4: "track-load-calcs",
-    5: "barlows-equation",
+    1: "stress-analysis-hdd",
+    2: "hdd-design-max-pull-force",
+    3: "hdd-minimum-required-force",
+    4: "hdd-minimum-combined-radius",
+    5: "hdd-rigs-data-conversion",
+    6: "hdd-profile-plotter",
+    7: "hdd-minimum-length-depth",
+    8: "hdd-buoyancy-control",
+    10: "design-pressure",
+    11: "barlows-equation",
+    12: "wheel-load",
+    13: "track-load",
+    14: "gas-velocity-pipeline",
+    15: "blow-down-time",
+    16: "blow-down-force",
+    17: "sleeve-saddle-branch-connections",
+    18: "gas-volume-pipeline",
+    19: "lowering-in-place",
+    20: "mud-properties",
+    21: "unit-weight-volume",
+    22: "fitting-standards",
+    23: "industry-standards",
   };
   const items = [
     getItem("Pipeline", "sub1", <GiTeePipe />, [
-      getItem("Design Pressure (Steel)", 1),
-      getItem("Gas Volume in Pipeline", 2),
-      getItem("Blow Down Time", 3),
-      getItem("Wheel Load Calculations", 4),
-      getItem("Track Load Calculations", 5),
-      getItem("Gas Velocity / AGPL", 6),
-      getItem("Barlow's Equation", 7),
+      getItem("Design Pressure / Min Wall Thickness", 10),
+      getItem("Barlow’s Equation", 11),
+      getItem("Wheel Load Calcs", 12),
+      getItem("Track Load Calcs", 13),
+      getItem("Gas Velocity in Pipeline", 14),
+      getItem("Blow Down Time", 15),
+      getItem("Blow Down Thrust Force", 16),
+      getItem("Sleeve/Saddle Branch Connections", 17),
+      getItem("Gas Volume in Pipeline", 18),
+      getItem("Lowering In Place", 19),
     ]),
     getItem(
       "Horizontal Directional Drilling",
       "sub2",
       <MdOutlineEngineering />,
-      [getItem("HDD Design", 11), getItem("Stress Analysis", 12)]
+      [
+        getItem("Stress Analysis", 1),
+        getItem("Maximum Pull Force", 2),
+        getItem("Minimum Required Pull Force", 3),
+        getItem("Absolute Min Combined Radius", 4),
+        getItem("Rigs Data / Conversion Factors", 5),
+        getItem("Profile Plotter - Visualizations", 6),
+        getItem("Min Horizontal/Depth Requirements", 7),
+        getItem("Buoyancy Control HDD", 8),
+      ]
     ),
-    getItem("Projects", "sub3", <FundProjectionScreenOutlined />, [
-      getItem("Project 1", 21),
-      getItem("Project 2", 22),
+    getItem("References", "sub3", <FundProjectionScreenOutlined />, [
+      getItem("Mud Rheological Properties", 20),
+      getItem("Pipe Sizes and Unit Weights", 21),
+      getItem("Fittings Standards", 22),
+      getItem("Industry Standards Access", 23),
     ]),
   ];
   const [currentPage, setCurrentPage] = useState(null);
@@ -97,19 +128,92 @@ const App = () => {
               path="/design-pressure"
               element={<DesignPressure collapsed={collapsed} />}
             />
-            <Route path="/minimum-wall-thickness" element={<Home />} />
-            <Route path="/maop-mop" element={<Home />} />
-            <Route path="/track-load-calcs" element={<Home />} />
-            <Route path="/barlows-equation" element={<Home />} />
+            <Route
+              path="/stress-analysis-hdd"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-design-max-pull-force"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-minimum-required-force"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-minimum-combined-radius"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-rigs-data-conversion"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-profile-plotter"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-minimum-length-depth"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/hdd-buoyancy-control"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/barlows-equation"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/wheel-load"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/track-load"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/gas-velocity-pipeline"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/blow-down-time"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/blow-down-force"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/sleeve-saddle-branch-connections"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/gas-volume-pipeline"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/lowering-in-place"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/mud-properties"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/unit-weight-volume"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/fitting-standards"
+              element={<Home collapsed={collapsed} />}
+            />
+            <Route
+              path="/industry-standards"
+              element={<Home collapsed={collapsed} />}
+            />
           </Routes>
         </Content>
-        {/* <Footer
-          style={{
-            textAlign: "center",
-          }}
-        >
-          All Copyrights are Reserved {new Date().getFullYear()}
-        </Footer> */}
       </Layout>
     </Layout>
   );
