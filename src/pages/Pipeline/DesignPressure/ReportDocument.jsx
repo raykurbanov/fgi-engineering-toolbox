@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function Report(props) {
+function ReportDocument(props) {
+  console.log(props);
   useEffect(() => {
     console.log("page was rerendered");
   }, [props]);
@@ -61,14 +62,14 @@ function Report(props) {
             <Text style={styles.header}>Pipe Input</Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.lineItem}>NPM: {props.npmSizePipe}"</Text>
+            <Text style={styles.lineItem}>NPM: {props.props.npmSizePipe}</Text>
             <Text style={styles.lineItem}>
-              Internal Diameter: {props.internalDiameter}
+              Internal Diameter: {props.props.internalDiameter}
             </Text>
           </View>
           <View style={styles.section}>
             <Text style={styles.lineItem}>
-              Outside Diameter: {props.outsideDiameter}
+              Outside Diameter: {props.props.outsideDiameter}
             </Text>
             <Text style={styles.lineItem}>
               Wall Thickness: {props.wallThickness}
@@ -104,4 +105,4 @@ function Report(props) {
   );
 }
 
-export default Report;
+export default ReportDocument;

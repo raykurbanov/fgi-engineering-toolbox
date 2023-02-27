@@ -1,6 +1,6 @@
 .ant-modal-content {
   margin-top: 0px;
-  transform: scale(0.88);
+  /* transform: scale(0.88); */
   height: 950px;
   width: 900px;
   padding: 10px 10px !important;

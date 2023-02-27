@@ -378,7 +378,17 @@ function DesignPressure(props) {
                 </p>
               </div>
               <div id="view-report">
-                <PreviewReport title={"Design Pressure"} />
+                <PreviewReport
+                  title={"Design Pressure"}
+                  npmSizePipe={npmSizePipe}
+                  internalDiameter={internalDiameter}
+                  wallThickness={wallThickness}
+                  outsideDiameter={outsideDiameter}
+                  pipeGrade={pipeGrade}
+                  locationClass={locationClass}
+                  jointType={jointType}
+                  temperature={temperature}
+                />
               </div>
             </div>
           </div>

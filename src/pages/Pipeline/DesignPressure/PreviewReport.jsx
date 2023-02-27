@@ -52,7 +52,7 @@ export default function PreviewReport(props) {
       >
         <div>
           <PDFViewer>
-            <ReportDocument />
+            <ReportDocument props={props} />
           </PDFViewer>
 
           {/* <div>
