@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import DesignPressure from "../../pages/Pipeline/DesignPressure/DesignPressure";
 import Home from "../Home/Home";
+import PreviewReport from "../../pages/Pipeline/DesignPressure/ReportDocument";
 
 const { Content, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -130,7 +131,7 @@ const App = () => {
             />
             <Route
               path="/stress-analysis-hdd"
-              element={<Home collapsed={collapsed} />}
+              element={<PreviewReport collapsed={collapsed} />}
             />
             <Route
               path="/hdd-design-max-pull-force"

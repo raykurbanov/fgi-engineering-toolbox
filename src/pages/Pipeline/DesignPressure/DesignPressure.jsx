@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Report from "./Report";
-import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import ReportDocument from "./ReportDocument";
+import PreviewReport from "./PreviewReport";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { Col, Row, Select, Space } from "antd";
+import "./PreviewReport.css";
 import "./DesignPressure.css";
 import { Column } from "@ant-design/plots";
 import {
@@ -257,12 +259,9 @@ function DesignPressure(props) {
 
   return (
     <div id="design-wrapper">
-      {/* <PDFViewer>
-        <Report />
-      </PDFViewer> */}
-      <PDFDownloadLink
+      {/* <PDFDownloadLink
         document={
-          <Report
+          <ReportDocument
             npmSizePipe={npmSizePipe}
             internalDiameter={internalDiameter}
             wallThickness={wallThickness}
@@ -276,9 +275,9 @@ function DesignPressure(props) {
         fileName="Report"
       >
         {({ blob, url, loading, error }) =>
-          loading ? "Loading document..." : "Download now!"
+          loading ? "Loading document..." : <button>Download</button>
         }
-      </PDFDownloadLink>
+      </PDFDownloadLink> */}
       <div id="form">
         <div id="input-form">
           <div className="input-data">
@@ -377,6 +376,9 @@ function DesignPressure(props) {
                 <p className="results result">
                   {(designPressure * 1.5).toFixed(2)} psig
                 </p>
+              </div>
+              <div id="view-report">
+                <PreviewReport title={"Design Pressure"} />
               </div>
             </div>
           </div>

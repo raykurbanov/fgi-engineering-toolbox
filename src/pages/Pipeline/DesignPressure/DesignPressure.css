@@ -128,7 +128,14 @@
   width: 100%;
 }
 
-#pipe-design-results-left,
+#pipe-design-results-left {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
 #pipe-design-results-right {
   width: 50%;
   display: flex;
@@ -225,4 +232,11 @@
   padding: 2px 5px;
   border-radius: 5px;
   color: #fff;
+}
+
+#view-report {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
 }

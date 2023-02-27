@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
 } from "@react-pdf/renderer";
+
 import "./Report.css";
 import { useEffect } from "react";
 import logo from "../../../assets/logo.JPG";
@@ -52,8 +53,8 @@ function Report(props) {
   }, [props]);
 
   return (
-    <Document>
-      <Page style={styles.page}>
+    <Document size>
+      <Page size="A4" style={styles.page}>
         <View style={styles.mainSection}>
           {/* <Image src={logo} style={styles.image} /> */}
           <View style={styles.section}>
@@ -77,6 +78,18 @@ function Report(props) {
             <Text style={styles.lineItem}>Pipe Grade: {props.pipeGrade}</Text>
             <Text style={styles.lineItem}>
               Class Location: {props.locationClass}
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.lineItem}>Joint Type: {props.jointType}</Text>
+            <Text style={styles.lineItem}>
+              Temperature Rating: {props.temperature}
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.lineItem}>Joint Type: {props.jointType}</Text>
+            <Text style={styles.lineItem}>
+              Temperature Rating: {props.temperature}
             </Text>
           </View>
           <View style={styles.section}>
