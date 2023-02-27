@@ -275,7 +275,9 @@ function DesignPressure(props) {
         }
         fileName="Report"
       >
-        <button>Download</button>
+        {({ blob, url, loading, error }) =>
+          loading ? "Loading document..." : "Download now!"
+        }
       </PDFDownloadLink>
       <div id="form">
         <div id="input-form">
