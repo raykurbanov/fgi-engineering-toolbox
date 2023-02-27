@@ -51,8 +51,11 @@ export default function PreviewReport(props) {
         cancelButtonProps={{ style: { display: "none" } }}
       >
         <div>
-          <PDFViewer>
-            <ReportDocument props={props} />
+          <PDFViewer showToolbar={true}>
+            {/* {({ loading }) =>
+              loading ? <h1>Loading</h1> : <ReportDocument props={props} />
+            } */}
+            <ReportDocument props={props} file={"file"} />
           </PDFViewer>
 
           {/* <div>

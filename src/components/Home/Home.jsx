@@ -13,7 +13,7 @@ function Home() {
       <div className="additional-data"></div>
       <h1 id="calculations-header">Available Calculations</h1>
       <div className="calculations-list">
-        <div class="available-calculations">
+        <div className="available-calculations">
           {calculationsListHDD.map((el, idx) => {
             return (
               <Link to={el.link} key={idx} className="list-item">
@@ -22,7 +22,7 @@ function Home() {
             );
           })}
         </div>
-        <div class="available-calculations">
+        <div className="available-calculations">
           {calculationsListPipeline.map((el, idx) => {
             return (
               <Link to={el.link} key={idx} className="list-item">
@@ -31,7 +31,7 @@ function Home() {
             );
           })}
         </div>
-        <div class="available-calculations">
+        <div className="available-calculations">
           {referenceData.map((el, idx) => {
             return (
               <Link to={el.link} key={idx} className="list-item">
