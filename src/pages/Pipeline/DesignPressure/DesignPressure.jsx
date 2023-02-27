@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Report from "./Report";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import { Col, Row, Select, Space } from "antd";
 import "./DesignPressure.css";
 import { Column } from "@ant-design/plots";
@@ -206,7 +208,6 @@ function DesignPressure(props) {
       </div>
     );
   };
-
   const SelectSTDTemplate = (props) => {
     return (
       <Space wrap>
@@ -256,6 +257,26 @@ function DesignPressure(props) {
 
   return (
     <div id="design-wrapper">
+      {/* <PDFViewer>
+        <Report />
+      </PDFViewer> */}
+      <PDFDownloadLink
+        document={
+          <Report
+            npmSizePipe={npmSizePipe}
+            internalDiameter={internalDiameter}
+            wallThickness={wallThickness}
+            outsideDiameter={outsideDiameter}
+            pipeGrade={pipeGrade}
+            locationClass={locationClass}
+            jointType={jointType}
+            temperature={temperature}
+          />
+        }
+        fileName="Report"
+      >
+        <button>Download</button>
+      </PDFDownloadLink>
       <div id="form">
         <div id="input-form">
           <div className="input-data">
@@ -294,9 +315,7 @@ function DesignPressure(props) {
               </div>
               <div className="flex-row">
                 <p className="bold">SMYS</p>
-                <p className="calculated-values">
-                  {pipeGrade / 1000 + "," + "000"}
-                </p>
+                <p className="calculated-values">{pipeGrade / 1000 + ",000"}</p>
               </div>
             </div>
             <div id="input-data-right">
