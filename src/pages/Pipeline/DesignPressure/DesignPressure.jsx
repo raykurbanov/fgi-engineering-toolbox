@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PreviewReport from "./PreviewReport";
 import { Col, Row, Select, Space, Button, Modal } from "antd";
 import "./PreviewReport.css";
 import "./DesignPressure.css";
 import { Column } from "@ant-design/plots";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, EditOutlined } from "@ant-design/icons";
 import {
   getAllPipeSizes,
   getOutsideDiameter,
@@ -17,8 +17,14 @@ import {
 } from "../../../utils/PipeSpecs";
 
 function DesignPressure(props) {
-  const [projectName, setProjectName] = useState("Type your project Name...");
+  const projectNameRef = useRef("");
+  const userRef = useRef("");
+  const clientRef = useRef("");
+
+  const [projectName, setProjectName] = useState("");
   const [userName, setUserName] = useState("");
+  const [createdAt, setCreatedAt] = useState("");
+  const [client, setClient] = useState("");
   const [npmSizePipe, setnpmSizePipe] = useState('16"');
   const [wallThickness, setWallThickness] = useState(0.165);
   const [pipeGrade, setPipeGrade] = useState(52000);
@@ -265,54 +271,94 @@ function DesignPressure(props) {
     };
     const handleOk = () => {
       setIsModalOpen(false);
+      console.log(userRef.current, projectNameRef.current, clientRef.current);
+      setUserName(userRef.current);
+      setProjectName(projectNameRef.current);
+      setClient(clientRef.current);
+      // const date = new Date();
+      // setCreatedAt(date);
     };
     const handleCancel = () => {
       setIsModalOpen(false);
     };
+
     return (
-      <>
-        <Button type="primary" onClick={showModal}>
-          <span>
-            {userName ? (
-              <>
-                <PlusOutlined /> Edit Project Information
-              </>
-            ) : (
-              <>
-                <PlusOutlined /> Add Project Information
-              </>
-            )}
-          </span>
-        </Button>
+      <div>
+        {userName || client || projectName || createdAt ? (
+          <div className="flex-column project-information">
+            <Row gutter={[8, 8]}>
+              <Col span={12}>Reporter: {userName}</Col>
+              <Col span={12}>Project Name: {projectName}</Col>
+            </Row>
+            <Row gutter={[8, 8]}>
+              <Col span={12}>Client: {client}</Col>
+              <Col span={12}>Created At: {createdAt}</Col>
+            </Row>
+
+            <Button type="primary" onClick={showModal}>
+              <EditOutlined /> Edit Project Information
+            </Button>
+          </div>
+        ) : (
+          <Button type="primary" onClick={showModal}>
+            <PlusOutlined /> Add Project Information
+          </Button>
+        )}
+
         <Modal
-          title="Basic Modal"
+          title="Project Information"
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}
+          width={350}
         >
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
+          <div>
+            <div className="flex-row-space-between">
+              Reporter:
+              <input
+                type="text"
+                className="input project-input"
+                ref={userRef}
+                onChange={(e) => (userRef.current = e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex-row-space-between">
+              Project Name:
+              <input
+                type="text"
+                className="input project-input"
+                ref={projectNameRef}
+                onChange={(e) => (projectNameRef.current = e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex-row-space-between">
+              Client:
+              <input
+                type="text"
+                className="input project-input"
+                ref={clientRef}
+                onChange={(e) => (clientRef.current = e.target.value)}
+                required
+              />
+            </div>
+          </div>
         </Modal>
-      </>
+      </div>
     );
   };
+
   return (
     <div id="design-wrapper">
       <div id="form">
         <div className="project-info">
-          <p>Project Information:</p>
+          {/* <p>Project Information:</p> */}
           <div className="project-wrap">
-            <div className="input-name">
-              <AddProjectInformation />
-            </div>
-            <div>
-              <p className="paragraph" id="pipe-type">
-                Pipe Type:
-                <span className="pipe-type">
-                  Pipe Line - API Specification 5L
-                </span>
-              </p>
+            <AddProjectInformation />
+
+            <div id="industry-standard">
+              <p id="pipe-type">Pipe Line - API Specification 5L</p>
             </div>
           </div>
         </div>

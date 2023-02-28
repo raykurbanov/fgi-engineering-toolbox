@@ -16,7 +16,7 @@
 }
 
 #input-form {
-  height: 55vh;
+  /* height: 55vh; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -96,7 +96,7 @@
 }
 
 .input-data {
-  height: 35vh;
+  /* height: 35vh; */
   width: 100%;
   display: flex;
 }
@@ -245,7 +245,6 @@
   text-align: left;
   font-size: 20px;
   font-weight: bold;
-  /* height: 30px; */
   width: 98%;
   margin-right: 2%;
   display: flex;
@@ -264,24 +263,55 @@
 .label {
   font-weight: 500;
 }
-.paragraph {
-  font-weight: 500;
-}
 
 .project-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 24px;
+  /* height: 150px; */
 }
 
 .input-name {
   display: flex;
 }
 
-.pipe-type {
+#pipe-type {
   font-weight: 500;
   margin-left: 5px;
   font-style: italic;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+#industry-standard {
+  display: flex;
+  align-items: flex-end;
+  height: 80px;
+}
+
+.flex-row-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.flex-column button {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.project-information {
+  margin-top: 10px;
+}
+
+.project-input {
+  width: 220px;
 }
