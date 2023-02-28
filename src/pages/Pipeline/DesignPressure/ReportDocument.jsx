@@ -72,31 +72,23 @@ function ReportDocument(props) {
               Outside Diameter: {props.props.outsideDiameter}
             </Text>
             <Text style={styles.lineItem}>
-              Wall Thickness: {props.wallThickness}
+              Wall Thickness: {props.props.wallThickness}
             </Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.lineItem}>Pipe Grade: {props.pipeGrade}</Text>
             <Text style={styles.lineItem}>
-              Class Location: {props.locationClass}
+              Pipe Grade: {props.props.pipeGrade}
+            </Text>
+            <Text style={styles.lineItem}>
+              Class Location: {props.props.locationClass}
             </Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.lineItem}>Joint Type: {props.jointType}</Text>
             <Text style={styles.lineItem}>
-              Temperature Rating: {props.temperature}
+              Joint Type: {props.props.jointType}
             </Text>
-          </View>
-          <View style={styles.section}>
-            <Text style={styles.lineItem}>Joint Type: {props.jointType}</Text>
             <Text style={styles.lineItem}>
-              Temperature Rating: {props.temperature}
-            </Text>
-          </View>
-          <View style={styles.section}>
-            <Text style={styles.lineItem}>Joint Type: {props.jointType}</Text>
-            <Text style={styles.lineItem}>
-              Temperature Rating: {props.temperature}
+              Temperature Rating: {props.props.temperature}
             </Text>
           </View>
         </View>

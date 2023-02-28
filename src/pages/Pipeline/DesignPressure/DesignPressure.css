@@ -1,5 +1,5 @@
 #design-wrapper {
-  max-height: 100vh;
+  /* max-height: 100vh; */
   display: flex;
   width: 100%;
   background-color: #fff;
@@ -7,7 +7,7 @@
 }
 
 #form {
-  height: 90vh;
+  /* height: 90vh; */
   width: 80%;
   display: flex;
   justify-content: center;
@@ -22,10 +22,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* margin-right: 15px; */
 }
 
 #input-chart {
-  height: 35vh;
+  /* height: 25vh; */
   padding: 15px auto;
   flex-direction: column;
   width: 100%;
@@ -95,16 +96,15 @@
 }
 
 .input-data {
-  height: 40vh;
+  height: 35vh;
   width: 100%;
   display: flex;
-  padding: 15px 0;
 }
 #input-data-left,
 #input-data-right {
   width: 50%;
   height: 100%;
-  padding: 15px 15px;
+  padding: 2%;
 }
 #input-data-left {
   border-right: 1px solid black;
@@ -118,9 +118,9 @@
 #pipe-design-results-header {
   margin-bottom: 0;
   border-bottom: 1px solid black;
-  width: 100%;
+  width: 98%;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #pipe-design-results {
@@ -129,19 +129,18 @@
 }
 
 #pipe-design-results-left {
-  width: 50%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 15px;
+  padding-left: 2%;
 }
 
 #pipe-design-results-right {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .result-wrapper {
@@ -150,7 +149,7 @@
 
 #pipe-design-results-left p,
 #pipe-design-results-right p {
-  width: 45%;
+  width: 50%;
   margin-bottom: 0px;
 }
 
@@ -181,7 +180,6 @@
   padding-left: 10px;
   border-radius: 4px;
   background-color: rgb(210, 209, 209);
-  /* text-underline-offset: 3px; */
 }
 
 .ant-select-selector {
@@ -236,7 +234,54 @@
 
 #view-report {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  width: 15%;
+  width: 100%;
+  /* margin-top: 40px; */
+  padding-right: 2%;
+}
+
+.project-info {
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  /* height: 30px; */
+  width: 98%;
+  margin-right: 2%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+}
+
+#inputName {
+  width: 200px;
+  margin-left: 5px;
+}
+
+.label {
+  font-weight: 500;
+}
+.paragraph {
+  font-weight: 500;
+}
+
+.project-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 24px;
+}
+
+.input-name {
+  display: flex;
+}
+
+.pipe-type {
+  font-weight: 500;
+  margin-left: 5px;
+  font-style: italic;
 }

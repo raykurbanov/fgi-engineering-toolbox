@@ -45,7 +45,6 @@ export default function PreviewReport(props) {
       <Modal
         title={props.title}
         open={isModalOpen}
-        // onOk={handleOk}
         onCancel={handleCancel}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}

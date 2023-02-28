@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ReportDocument from "./ReportDocument";
 import PreviewReport from "./PreviewReport";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import { Col, Row, Select, Space } from "antd";
+import { Col, Row, Select, Space, Button, Modal } from "antd";
 import "./PreviewReport.css";
 import "./DesignPressure.css";
 import { Column } from "@ant-design/plots";
+import { PlusOutlined } from "@ant-design/icons";
 import {
   getAllPipeSizes,
   getOutsideDiameter,
@@ -18,6 +17,8 @@ import {
 } from "../../../utils/PipeSpecs";
 
 function DesignPressure(props) {
+  const [projectName, setProjectName] = useState("Type your project Name...");
+  const [userName, setUserName] = useState("");
   const [npmSizePipe, setnpmSizePipe] = useState('16"');
   const [wallThickness, setWallThickness] = useState(0.165);
   const [pipeGrade, setPipeGrade] = useState(52000);
@@ -257,28 +258,64 @@ function DesignPressure(props) {
     temperature,
   ]);
 
+  const AddProjectInformation = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+    const handleOk = () => {
+      setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
+    return (
+      <>
+        <Button type="primary" onClick={showModal}>
+          <span>
+            {userName ? (
+              <>
+                <PlusOutlined /> Edit Project Information
+              </>
+            ) : (
+              <>
+                <PlusOutlined /> Add Project Information
+              </>
+            )}
+          </span>
+        </Button>
+        <Modal
+          title="Basic Modal"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </Modal>
+      </>
+    );
+  };
   return (
     <div id="design-wrapper">
-      {/* <PDFDownloadLink
-        document={
-          <ReportDocument
-            npmSizePipe={npmSizePipe}
-            internalDiameter={internalDiameter}
-            wallThickness={wallThickness}
-            outsideDiameter={outsideDiameter}
-            pipeGrade={pipeGrade}
-            locationClass={locationClass}
-            jointType={jointType}
-            temperature={temperature}
-          />
-        }
-        fileName="Report"
-      >
-        {({ blob, url, loading, error }) =>
-          loading ? "Loading document..." : <button>Download</button>
-        }
-      </PDFDownloadLink> */}
       <div id="form">
+        <div className="project-info">
+          <p>Project Information:</p>
+          <div className="project-wrap">
+            <div className="input-name">
+              <AddProjectInformation />
+            </div>
+            <div>
+              <p className="paragraph" id="pipe-type">
+                Pipe Type:
+                <span className="pipe-type">
+                  Pipe Line - API Specification 5L
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
         <div id="input-form">
           <div className="input-data">
             <div id="input-data-left">
@@ -377,21 +414,21 @@ function DesignPressure(props) {
                   {(designPressure * 1.5).toFixed(2)} psig
                 </p>
               </div>
-              <div id="view-report">
-                <PreviewReport
-                  title={"Design Pressure"}
-                  npmSizePipe={npmSizePipe}
-                  internalDiameter={internalDiameter}
-                  wallThickness={wallThickness}
-                  outsideDiameter={outsideDiameter}
-                  pipeGrade={pipeGrade}
-                  locationClass={locationClass}
-                  jointType={jointType}
-                  temperature={temperature}
-                />
-              </div>
             </div>
           </div>
+        </div>
+        <div id="view-report">
+          <PreviewReport
+            title={"Design Pressure"}
+            npmSizePipe={npmSizePipe}
+            internalDiameter={internalDiameter}
+            wallThickness={wallThickness}
+            outsideDiameter={outsideDiameter}
+            pipeGrade={pipeGrade}
+            locationClass={locationClass}
+            jointType={jointType}
+            temperature={temperature}
+          />
         </div>
         <div id="input-chart">
           <h2>Design Pressure</h2>
