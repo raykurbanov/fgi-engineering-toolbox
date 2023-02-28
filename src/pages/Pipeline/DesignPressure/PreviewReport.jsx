@@ -2,16 +2,14 @@ import { useState } from "react";
 import ReportDocument from "./ReportDocument";
 import { Button, Modal } from "antd";
 import { EyeOutlined } from "@ant-design/icons";
-import { pdf, StyleSheet, PDFViewer } from "@react-pdf/renderer";
+import { PDFViewer } from "@react-pdf/renderer";
 
 export default function PreviewReport(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
   };
-  //   const handleOk = () => {
-  //     setIsModalOpen(false);
-  //   };
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -34,15 +32,8 @@ export default function PreviewReport(props) {
       >
         <div>
           <PDFViewer showToolbar={true}>
-            {/* {({ loading }) =>
-              loading ? <h1>Loading</h1> : <ReportDocument props={props} />
-            } */}
             <ReportDocument props={props} file={"file"} />
           </PDFViewer>
-
-          {/* <div>
-            <button onClick={saveFile}>Save File</button>
-          </div> */}
         </div>
       </Modal>
     </>
