@@ -1,11 +1,10 @@
 .ant-modal-content {
   margin-top: 0px;
   /* transform: scale(0.88); */
-  /* height: 950px;
-  width: 900px; */
+  /* height: 950px; */
   padding: 10px 10px !important;
 }
 .ant-modal-body iframe {
   width: 100%;
-  height: 900px;
+  height: 700px;
 }

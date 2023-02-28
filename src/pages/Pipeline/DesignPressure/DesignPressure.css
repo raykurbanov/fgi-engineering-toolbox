@@ -26,13 +26,12 @@
 }
 
 #input-chart {
-  /* height: 25vh; */
-  padding: 15px auto;
   flex-direction: column;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 #additional-info {
@@ -239,6 +238,7 @@
   width: 100%;
   /* margin-top: 40px; */
   padding-right: 2%;
+  margin-top: 15px;
 }
 
 .project-info {

@@ -271,12 +271,12 @@ function DesignPressure(props) {
     };
     const handleOk = () => {
       setIsModalOpen(false);
-      console.log(userRef.current, projectNameRef.current, clientRef.current);
-      setUserName(userRef.current);
-      setProjectName(projectNameRef.current);
-      setClient(clientRef.current);
-      // const date = new Date();
-      // setCreatedAt(date);
+      setUserName(typeof userRef.current === "string" ? userRef.current : "");
+      setProjectName(
+        typeof projectNameRef.current === "string" ? projectNameRef.current : ""
+      );
+      setClient(typeof clientRef.current === "string" ? clientRef.current : "");
+      setCreatedAt(new Date().toLocaleDateString());
     };
     const handleCancel = () => {
       setIsModalOpen(false);
@@ -311,6 +311,7 @@ function DesignPressure(props) {
           onOk={handleOk}
           onCancel={handleCancel}
           width={350}
+          bodyStyle={{ height: "130px" }}
         >
           <div>
             <div className="flex-row-space-between">

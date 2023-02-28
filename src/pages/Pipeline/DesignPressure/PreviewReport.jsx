@@ -1,21 +1,8 @@
 import { useState } from "react";
 import ReportDocument from "./ReportDocument";
 import { Button, Modal } from "antd";
-// import { EyeOutlined } from "@ant-design/icons ";
 import { EyeOutlined } from "@ant-design/icons";
 import { pdf, StyleSheet, PDFViewer } from "@react-pdf/renderer";
-
-// const styles = StyleSheet.create({
-//   page: {
-//     flexDirection: "row",
-//     backgroundColor: "#E4E4E4",
-//   },
-//   section: {
-//     margin: 10,
-//     padding: 10,
-//     flexGrow: 1,
-//   },
-// });
 
 export default function PreviewReport(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,12 +15,6 @@ export default function PreviewReport(props) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  //   const saveFile = () => {
-  //     // This does the trick!
-  //     pdf(<ReportDocument />)
-  //       .toBlob()
-  //       .then((blob) => saveAs(blob, "Design Pressure Report.pdf"));
-  //   };
 
   return (
     <>
@@ -48,6 +29,8 @@ export default function PreviewReport(props) {
         onCancel={handleCancel}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}
+        width={750}
+        bodyStyle={{ height: "700px" }}
       >
         <div>
           <PDFViewer showToolbar={true}>
