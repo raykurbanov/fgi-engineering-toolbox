@@ -227,7 +227,7 @@
 
 #view-report {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   padding-right: 2%;
